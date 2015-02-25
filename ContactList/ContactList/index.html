@@ -16,21 +16,44 @@
     <div class="container">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-6">
-                    <div class="addItem">
-                        <div class="addItemInner">
-                            <span>Name:</span>
-                            <input class="form-control input-sm fname" id="fname" size="24" placeholder="Enter Contact Name here" /><br />
-                            <span>Last Name:</span>
-                            <input class="form-control input-sm surname" id="surname" size="24" placeholder="Contact Surname (optional)" /><br />
-                            <span>Phone number:</span>
-                            <input class="form-control input-sm phone" id="phone" size="24" placeholder="(DDD)DDD-DDDD" /><br />
-                            <button id="newContact()" class="btn-xs btn-primary">Submit</button>
-                        </div>
-                    </div>
-                </div>
+                <h1>Contacts</h1>
+                <table class="table table-striped" id="contacts-table">
+                    <tr id="contacts-head">
+                        <th>ID</th>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>Telephone</th>
+                        <th>Actions</th>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
+    
+
+    <form id="contacts-form">
+        <div class="item text">
+            <label>First name:</label>
+            <div class="field"><input type="text" name="first_name" /></div>
+        </div>
+        <div class="item text">
+            <label>Last name:</label>
+            <div class="field"><input type="text" name="last_name" /></div>
+        </div>
+        <div class="item text">
+            <label>Telephone:</label>
+            <div class="field"><input type="text" name="telephone" /></div>
+        </div>
+        <div class="button-wrapper">
+            <div class="item button">
+                <div class="field"><input type="button" id="contacts-op-discard" value="Discard" /></div>
+            </div>
+            <div class="item button button-default">
+                <div class="field"><input type="submit" id="contacts-op-save" value="Save" /></div>
+            </div>
+        </div>
+        <input type="hidden" name="id_entry" value="0" />
+    </form>
 </body>
 </html>
+
