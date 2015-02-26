@@ -1,59 +1,130 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Phone Book Example</title>
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
     <!-- Latest compiled JavaScript -->
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>  
+    <style>
+        a {
+            color: #0068D2;
+            cursor: pointer;
+        }
+
+            a:link, a:visited {
+                text-decoration: none;
+                color: #0068D2;
+            }
+
+            a:hover, a:active {
+                text-decoration: underline;
+                color: #0068D2;
+            }
+
+
+
+            #contacts-table, #contacts-table th, #contacts-table td {
+                padding: 8px 16px;
+                text-align: left;
+                border: 0px solid #B9BABE;
+            }
+
+                #contacts-table th {
+                    font-weight: bold;
+                    font-size: 14px;
+                    color: #29344B;
+                }
+
+                #contacts-table td {
+                    color: #000;
+                }
+
+                #contacts-table tr:nth-child(2n) {
+                    background: #E8EDFF;
+                }
+
+
+        #contacts-form .button {
+            display: inline-block;
+        }
+
+        #contacts-form .button-wrapper {
+            padding-left: 113px;
+        }
+
+        .button-default input {
+            font-weight: bold;
+            color: #fff;
+            background-color: #7ca0c7;
+            background: -moz-linear-gradient(#acc6e1, #7ca0c7);
+            background: -webkit-gradient(linear, 0 0, 0 100%, from(#acc6e1), to(#7ca0c7));
+            border-color: #5b80b2;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <div class="container-fluid">
             <div class="row">
-                <h1>Contacts</h1>
-                <table class="table table-striped" id="contacts-table">
+                <h1><strong>Contacts</strong></h1>
+                <table id="contacts-table" class="table table-striped">
                     <tr id="contacts-head">
-                        <th>ID</th>
-                        <th>First name</th>
-                        <th>Last name</th>
-                        <th>Telephone</th>
-                        <th>Actions</th>
+                        <th class="col-sm-2">ID</th>
+                        <th class="col-sm-2">First name</th>
+                        <th class="col-sm-2">Last name</th>
+                        <th class="col-sm-2">Phone Number</th>
+                        <th class="col-sm-2">Actions</th>
                     </tr>
                 </table>
             </div>
+         </div>
+    </div>
+    <div class="container">
+        <div class="container-fluid">
+            <div class="row">
+                <form id="contacts-form" class="form-horizontal">
+                    <div class="form-group">
+                        <label for="inputFirstName" class="col-sm-2 control-label">First Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputFirstName" placeholder="Please enter your name" name="first_name" data-validation="length" data-validation-length="min4" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputLastName" class="col-sm-2 control-label">Last Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputLastName" placeholder="Please enter your surname" name="last_name" data-validation="length" data-validation-length="min4" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPhoneNumber" class="col-sm-2 control-label">Phone Number</label>
+                        <div class="col-sm-10">
+                            <input type="tel" class="form-control" id="inputPhoneNumber" placeholder="(000)000-0000" name="telephone" data-validation="length" data-validation-length="min4" required>
+                        </div>
+                    </div>
+                    <div class="button-wrapper">
+                        <div class="form-group">
+                            <input class="btn btn-sm" type="button" id="contacts-op-discard" value="Discard" />
+                        </div>
+                        <div class="item button button-default">
+                            <div class="form-group">
+                                <input class="btn btn-sm" type="submit" id="contacts-op-save" value="Submit">
+                            </div>
+                        </div>
+                   </div>
+                    <input type="hidden" name="id_entry" value="0" />
+               </form>
+            </div>               
         </div>
     </div>
-    
-
-    <form id="contacts-form">
-        <div class="item text">
-            <label>First name:</label>
-            <div class="field"><input type="text" name="first_name" /></div>
-        </div>
-        <div class="item text">
-            <label>Last name:</label>
-            <div class="field"><input type="text" name="last_name" /></div>
-        </div>
-        <div class="item text">
-            <label>Telephone:</label>
-            <div class="field"><input type="text" name="telephone" /></div>
-        </div>
-        <div class="button-wrapper">
-            <div class="item button">
-                <div class="field"><input type="button" id="contacts-op-discard" value="Discard" /></div>
-            </div>
-            <div class="item button button-default">
-                <div class="field"><input type="submit" id="contacts-op-save" value="Save" /></div>
-            </div>
-        </div>
-        <input type="hidden" name="id_entry" value="0" />
-    </form>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.1.47/jquery.form-validator.min.js"></script>
+    <script> $.validate(); </script>
 </body>
 </html>
 
