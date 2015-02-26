@@ -93,8 +93,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\styles\myStyles.css" />
     <Content Include="Global.asax" />
     <Content Include="index.html" />
+    <Content Include="js\myFunctions.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
